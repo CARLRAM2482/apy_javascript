@@ -1,7 +1,7 @@
 /* Estilos para el cuerpo de la página */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #BEDC74;
     margin: 0;
     padding: 0;
 }
@@ -30,8 +30,8 @@ h1 {
 
 /* Estilos para cada tarjeta */
 .cards-container div {
-    background-color: white;
-    border: 2px solid #ccc;
+    background-color: #98DED9;
+    border: 2px solid #161D6F;
     border-radius: 10px;
     width: 250px;
     padding: 15px;
