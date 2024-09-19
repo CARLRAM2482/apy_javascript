@@ -1,7 +1,7 @@
-const apiurl = "https://rickandmortyapi.com/api/character"
+const apiurl = "https://rickandmortyapi.com/api/character";
 
-function makecard (character){
-    const {name, status, image} = character;
+function makecard(character) {
+    const { name, status, image } = character;
     const cardsContainer = document.querySelector(".cards-container");
 
     const title = document.createElement("h5");
@@ -9,8 +9,8 @@ function makecard (character){
 
     const characterstatus = document.createElement("p");
     characterstatus.textContent = status;
-    if(status == "Alive") characterstatus.style.color = "blue";
-    else characterstatus.style.color = "gray";
+    characterstatus.classList.add(status === "Alive" ? "alive" : "dead");
+
     const characterimge = document.createElement("img");
     characterimge.src = image;
     characterimge.width = 200;
@@ -19,27 +19,22 @@ function makecard (character){
     card.appendChild(title);
     card.appendChild(characterimge);
     card.appendChild(characterstatus);
-    card.style.backgroundColor = "red";
 
     cardsContainer.appendChild(card);
-
-
-
 }
-async  function getCharacters () {
-    try {
-        const response = await  fetch(apiurl);
-        const {results} = await response.json();
-        
-        for(let i= 0; i< results.length;  i++) {
-            makecard(results[1]);
 
+async function getCharacters() {
+    try {
+        const response = await fetch(apiurl);
+        const { results } = await response.json();
+
+        for (let i = 0; i < results.length; i++) {
+            makecard(results[i]);
         }
         console.log(results);
     } catch (error) {
-        console.error( error);
+        console.error(error);
     }
-    
-
 }
+
 getCharacters();
